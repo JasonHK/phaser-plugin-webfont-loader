@@ -2,9 +2,10 @@ import * as phaser from "phaser";
 import { Loader, Plugins, Scene } from "phaser";
 import { Config as LoaderConfig } from "webfontloader";
 
+import { callback } from "./core/callback";
 import { LoaderOptions, WebFontFile } from "./core/loader";
 
-type WebFontEvents = "webfontactive" | "webfontinactive";
+type WebFontEvents = "webfontactive" | "webfontinactive" | "webfontloading";
 
 declare module "phaser" {
 
@@ -23,7 +24,7 @@ declare module "phaser" {
             listenerCount(event: WebFontEvents): number;
 
             emit(event: string | symbol, ...args: any[]): boolean;
-            emit(event: WebFontEvents, fileObject: WebFontFile, familyName: string, fvd: string): boolean;
+            emit(event: WebFontEvents, familyName: string, fvd: string, fileObject: WebFontFile): boolean;
 
             on(event: string | symbol, fn: Function, context?: any): this;
             on(event: WebFontEvents, fn: WebFontEventListener, context?: any): this;
@@ -47,7 +48,7 @@ declare module "phaser" {
 }
 
 export interface WebFontEventListener {
-    (fileObject: WebFontFile, familyName: string, fvd: string): void;
+    (familyName: string, fvd: string, fileObject: WebFontFile): void;
 }
 
 export class WebFontLoaderPlugin extends Plugins.BasePlugin {

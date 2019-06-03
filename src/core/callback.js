@@ -14,7 +14,7 @@ export function callback(key, options) {
 
     if (Utils.Objects.IsPlainObject(key)) {
         options = key;
-        if (options.prototype.hasOwnProperty("config")) {
+        if (Object.prototype.hasOwnProperty.call(options, "config")) {
             options.type = "webfont";
             options.url = "";
         } else {

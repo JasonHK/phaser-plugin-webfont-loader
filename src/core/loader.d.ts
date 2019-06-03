@@ -21,6 +21,7 @@ export class WebFontFile extends Loader.File {
 
     public onFontActive(familyName: string, fvd: string): void;
     public onFontInactive(familyName: string, fvd: string): void;
+    public onFontLoading(familyName: string, fvd: string): void;
 }
 
 export default WebFontFile;

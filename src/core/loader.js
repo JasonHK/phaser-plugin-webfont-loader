@@ -25,6 +25,7 @@ export class WebFontFile extends Loader.File {
             config.inactive = this.onError.bind(this);
             config.fontactive = this.onFontActive.bind(this);
             config.fontinactive = this.onFontInactive.bind(this);
+            config.fontloading = this.onFontLoading.bind(this);
 
             load(config);
         }
@@ -37,17 +38,22 @@ export class WebFontFile extends Loader.File {
 
     onError() {
 
-        this.loader.nextFile(this, true);
+        this.loader.nextFile(this, false);
     }
 
     onFontActive(familyName, fvd) {
 
-        this.loader.emit("webfontactive", this, familyName, fvd);
+        this.loader.emit("webfontactive", familyName, fvd, this);
     }
 
     onFontInactive(familyName, fvd) {
 
-        this.loader.emit("webfontinactive", this, familyName, fvd);
+        this.loader.emit("webfontinactive", familyName, fvd, this);
+    }
+
+    onFontLoading(familyName, fvd) {
+
+        this.loader.emit("webfontloading", familyName, fvd, this);
     }
 }
 
