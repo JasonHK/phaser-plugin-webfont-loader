@@ -1,6 +1,6 @@
 {
-  "name": "@jasonhk/phaser-plugin-webfont-loader",
-  "version": "0.0.1",
+  "name": "phaser-plugin-webfont-loader",
+  "version": "0.1.0",
   "description": "",
   "type": "module",
   "main": "src/plugin.js",
