@@ -15,13 +15,13 @@ export function callback(key, options) {
     if (Utils.Objects.IsPlainObject(key)) {
         options = key;
         if (Object.prototype.hasOwnProperty.call(options, "config")) {
-            options.type = "webfont";
+            options.type = "Webfont";
             options.url = "";
         } else {
             options = {
                 config: options,
-                key: "webfont",
-                type: "webfont",
+                key: "Webfont",
+                type: "Webfont",
                 url: "",
             };
         }
@@ -29,7 +29,7 @@ export function callback(key, options) {
         options = {
             config: options,
             key: key,
-            type: "webfont",
+            type: "Webfont",
             url: "",
         };
     }

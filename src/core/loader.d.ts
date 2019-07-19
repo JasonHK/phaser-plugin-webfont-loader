@@ -4,7 +4,7 @@ import { Config } from "webfontloader";
 export interface LoaderOptions {
     config: Config;
     key:    string;
-    type:   "webfont";
+    type:   "Webfont";
     url:    string;
 }
 
