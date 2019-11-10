@@ -1,20 +1,22 @@
 {
     "compilerOptions": {
-        "target": "esnext",
-        "module": "es2015",
+        "target": "es2015",
+        "module": "commonjs",
         "moduleResolution": "node",
         "baseUrl": ".",
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "lib",
         "paths": {
             "*": [
                 "*",
-                "node_modules/*"
-            ]
+                "node_modules/*",
+                "src/types/*",
+            ],
         },
-        "allowJs": true,
+        "allowJs": false,
         "allowSyntheticDefaultImports": true,
-        "checkJs": true,
+        "checkJs": false,
+        "declaration": true,
         "esModuleInterop": true,
         "importHelpers": true,
         "noImplicitAny": true,
@@ -24,6 +26,12 @@
         "sourceMap": true,
     },
     "files": [
-        "src/plugin.js"
+        "src/index.ts",
+    ],
+    "include": [
+        "src/**/*",
+    ],
+    "exclude": [
+        "src/**/*.spec.ts",
     ]
 }

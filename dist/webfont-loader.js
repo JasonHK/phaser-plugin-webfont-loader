@@ -7,7 +7,7 @@
 		exports["WebFontLoaderPlugin"] = factory(require("Phaser"));
 	else
 		root["WebFontLoaderPlugin"] = factory(root["Phaser"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__1__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__2__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -96,229 +96,374 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebFontLoaderPlugin", function() { return WebFontLoaderPlugin; });
-/* harmony import */ var phaser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var phaser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(phaser__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_callback__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 
+const webfont_plugin_1 = __webpack_require__(1);
+module.exports = webfont_plugin_1.WebFontLoaderPlugin;
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var WebFontLoaderPlugin =
-/*#__PURE__*/
-function (_Plugins$BasePlugin) {
-  _inherits(WebFontLoaderPlugin, _Plugins$BasePlugin);
-
-  /**
-   * @param {PluginManager} pluginManager
-   */
-  function WebFontLoaderPlugin(pluginManager) {
-    var _this;
-
-    _classCallCheck(this, WebFontLoaderPlugin);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(WebFontLoaderPlugin).call(this, pluginManager));
-    pluginManager.registerFileType("webfont", _core_callback__WEBPACK_IMPORTED_MODULE_1__["callback"]);
-    return _this;
-  }
-  /**
-   * @param {Scene} scene
-   */
-
-
-  _createClass(WebFontLoaderPlugin, [{
-    key: "addToScene",
-    value: function addToScene(scene) {
-      // @ts-ignore
-      scene.load["webfont"] = _core_callback__WEBPACK_IMPORTED_MODULE_1__["callback"];
-    }
-  }]);
-
-  return WebFontLoaderPlugin;
-}(phaser__WEBPACK_IMPORTED_MODULE_0__["Plugins"].BasePlugin);
-/* harmony default export */ __webpack_exports__["default"] = (WebFontLoaderPlugin);
-/** @typedef {import("phaser").Plugins.PluginManager} PluginManager */
-
-/** @typedef {import("phaser").Scene} Scene */
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const phaser_1 = __webpack_require__(2);
+const loader_callback_1 = __webpack_require__(3);
+class WebFontLoaderPlugin extends phaser_1.Plugins.BasePlugin {
+    constructor(pluginManager) {
+        super(pluginManager);
+        pluginManager.registerFileType("webfont", loader_callback_1.loaderCallback);
+    }
+    addToScene(scene) {
+        scene.load.webfont = loader_callback_1.loaderCallback;
+    }
+}
+exports.WebFontLoaderPlugin = WebFontLoaderPlugin;
+exports.default = WebFontLoaderPlugin;
+
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "callback", function() { return callback; });
-/* harmony import */ var phaser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var phaser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(phaser__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-
-
-
-
-/**
- * @param {string|Options} key
- * @param {Options}        [options]
- * @return {LoaderPlugin}
- * @this {LoaderPlugin}
- */
-
-function callback(key, options) {
-  if (phaser__WEBPACK_IMPORTED_MODULE_0__["Utils"].Objects.IsPlainObject(key)) {
-    options = key;
-
-    if (options.prototype.hasOwnProperty("config")) {
-      options.type = "webfont";
-      options.url = "";
-    } else {
-      options = {
-        config: options,
-        key: "webfont",
-        type: "webfont",
-        url: ""
-      };
-    }
-  } else {
-    options = {
-      config: options,
-      key: key,
-      type: "webfont",
-      url: ""
-    };
-  }
-
-  this.addFile(new _loader__WEBPACK_IMPORTED_MODULE_1__["WebFontFile"](this, options));
-  return this;
-}
-/* harmony default export */ __webpack_exports__["default"] = (callback);
-/** @typedef {import("phaser").Loader.LoaderPlugin} LoaderPlugin */
-
-/** @typedef {import("./callback").Options} Options */
+module.exports = __WEBPACK_EXTERNAL_MODULE__2__;
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const is_what_1 = __webpack_require__(4);
+const type_assertions_1 = __webpack_require__(5);
+const webfont_loader_1 = __webpack_require__(6);
+function loaderCallback(key, config) {
+    let options;
+    if (is_what_1.isPlainObject(key)) {
+        if (type_assertions_1.isLoaderOptions(key)) {
+            options = Object.assign({}, key, {
+                type: "WebFont",
+                url: "",
+            });
+        }
+        else {
+            options = {
+                config: key,
+                key: "WebFont",
+                type: "WebFont",
+                url: "",
+            };
+        }
+    }
+    else {
+        options = {
+            config: config,
+            key: key,
+            type: "WebFont",
+            url: "",
+        };
+    }
+    this.addFile(new webfont_loader_1.WebFontFile(this, options));
+    return this;
+}
+exports.loaderCallback = loaderCallback;
+exports.default = loaderCallback;
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebFontFile", function() { return WebFontFile; });
-/* harmony import */ var phaser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var phaser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(phaser__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(webfontloader__WEBPACK_IMPORTED_MODULE_1__);
-
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var WebFontFile =
-/*#__PURE__*/
-function (_Loader$File) {
-  _inherits(WebFontFile, _Loader$File);
-
-  /**
-   * @param {LoaderPlugin}  loader
-   * @param {LoaderOptions} fileOptions
-   */
-  function WebFontFile(loader, fileOptions) {
-    _classCallCheck(this, WebFontFile);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(WebFontFile).call(this, loader, fileOptions));
-  }
-
-  _createClass(WebFontFile, [{
-    key: "load",
-    value: function load() {
-      if (this.state === phaser__WEBPACK_IMPORTED_MODULE_0__["Loader"].FILE_POPULATED) {
-        this.loader.nextFile(this, true);
-      } else {
-        /** @type {LoaderOptions["config"]} */
-        var config = this.config;
-        config.active = this.onLoad.bind(this);
-        config.inactive = this.onError.bind(this);
-        config.fontactive = this.onFontActive.bind(this);
-        config.fontinactive = this.onFontInactive.bind(this);
-
-        Object(webfontloader__WEBPACK_IMPORTED_MODULE_1__["load"])(config);
-      }
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getType", function() { return getType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isUndefined", function() { return isUndefined; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNull", function() { return isNull; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPlainObject", function() { return isPlainObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isObject", function() { return isObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isAnyObject", function() { return isAnyObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isObjectLike", function() { return isObjectLike; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isFunction", function() { return isFunction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isArray", function() { return isArray; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isString", function() { return isString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isFullString", function() { return isFullString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEmptyString", function() { return isEmptyString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNumber", function() { return isNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isBoolean", function() { return isBoolean; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isRegExp", function() { return isRegExp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDate", function() { return isDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isSymbol", function() { return isSymbol; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPrimitive", function() { return isPrimitive; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isType", function() { return isType; });
+/**
+ * Returns the object type of the given payload
+ *
+ * @param {*} payload
+ * @returns {string}
+ */
+function getType(payload) {
+    return Object.prototype.toString.call(payload).slice(8, -1);
+}
+/**
+ * Returns whether the payload is undefined
+ *
+ * @param {*} payload
+ * @returns {payload is undefined}
+ */
+function isUndefined(payload) {
+    return getType(payload) === 'Undefined';
+}
+/**
+ * Returns whether the payload is null
+ *
+ * @param {*} payload
+ * @returns {payload is null}
+ */
+function isNull(payload) {
+    return getType(payload) === 'Null';
+}
+/**
+ * Returns whether the payload is a plain JavaScript object (excluding special classes or objects with other prototypes)
+ *
+ * @param {*} payload
+ * @returns {payload is {[key: string]: any}}
+ */
+function isPlainObject(payload) {
+    if (getType(payload) !== 'Object')
+        return false;
+    return (payload.constructor === Object && Object.getPrototypeOf(payload) === Object.prototype);
+}
+/**
+ * Returns whether the payload is a plain JavaScript object (excluding special classes or objects with other prototypes)
+ *
+ * @param {*} payload
+ * @returns {payload is {[key: string]: any}}
+ */
+function isObject(payload) {
+    return isPlainObject(payload);
+}
+/**
+ * Returns whether the payload is an any kind of object (including special classes or objects with different prototypes)
+ *
+ * @param {*} payload
+ * @returns {payload is {[key: string]: any}}
+ */
+function isAnyObject(payload) {
+    return getType(payload) === 'Object';
+}
+/**
+ * Returns whether the payload is an object like a type passed in < >
+ *
+ * Usage: isObjectLike<{id: any}>(payload) // will make sure it's an object and has an `id` prop.
+ *
+ * @template T this must be passed in < >
+ * @param {*} payload
+ * @returns {payload is T}
+ */
+function isObjectLike(payload) {
+    return isAnyObject(payload);
+}
+/**
+ * Returns whether the payload is a function
+ *
+ * @param {*} payload
+ * @returns {payload is Function}
+ */
+function isFunction(payload) {
+    return getType(payload) === 'Function';
+}
+/**
+ * Returns whether the payload is an array
+ *
+ * @param {*} payload
+ * @returns {payload is undefined}
+ */
+function isArray(payload) {
+    return getType(payload) === 'Array';
+}
+/**
+ * Returns whether the payload is a string
+ *
+ * @param {*} payload
+ * @returns {payload is string}
+ */
+function isString(payload) {
+    return getType(payload) === 'String';
+}
+/**
+ * Returns whether the payload is a string, BUT returns false for ''
+ *
+ * @param {*} payload
+ * @returns {payload is string}
+ */
+function isFullString(payload) {
+    return isString(payload) && payload !== '';
+}
+/**
+ * Returns whether the payload is ''
+ *
+ * @param {*} payload
+ * @returns {payload is string}
+ */
+function isEmptyString(payload) {
+    return payload === '';
+}
+/**
+ * Returns whether the payload is a number
+ *
+ * This will return false for NaN
+ *
+ * @param {*} payload
+ * @returns {payload is number}
+ */
+function isNumber(payload) {
+    return (getType(payload) === 'Number' && !isNaN(payload));
+}
+/**
+ * Returns whether the payload is a boolean
+ *
+ * @param {*} payload
+ * @returns {payload is boolean}
+ */
+function isBoolean(payload) {
+    return getType(payload) === 'Boolean';
+}
+/**
+ * Returns whether the payload is a regular expression
+ *
+ * @param {*} payload
+ * @returns {payload is RegExp}
+ */
+function isRegExp(payload) {
+    return getType(payload) === 'RegExp';
+}
+/**
+ * Returns whether the payload is a date, and that the date is Valid
+ *
+ * @param {*} payload
+ * @returns {payload is Date}
+ */
+function isDate(payload) {
+    return (getType(payload) === 'Date' && !isNaN(payload));
+}
+/**
+ * Returns whether the payload is a Symbol
+ *
+ * @param {*} payload
+ * @returns {payload is Symbol}
+ */
+function isSymbol(payload) {
+    return (getType(payload) === 'Symbol');
+}
+/**
+ * Returns whether the payload is a primitive type (eg. Boolean | Null | Undefined | Number | String | Symbol)
+ *
+ * @param {*} payload
+ * @returns {*}
+ */
+function isPrimitive(payload) {
+    return (isBoolean(payload) ||
+        isNull(payload) ||
+        isUndefined(payload) ||
+        isNumber(payload) ||
+        isString(payload) ||
+        isSymbol(payload));
+}
+/**
+ * Does a generic check to check that the given payload is of a given type.
+ * In cases like Number, it will return true for NaN as NaN is a Number (thanks javascript!);
+ * It will, however, differentiate between object and null
+ *
+ * @template T
+ * @param {*} payload
+ * @param {T} type
+ * @throws {TypeError} Will throw type error if type is an invalid type
+ * @returns {payload is T}
+ */
+function isType(payload, type) {
+    if (!(type instanceof Function)) {
+        throw new TypeError('Type must be a function');
     }
-  }, {
-    key: "onLoad",
-    value: function onLoad() {
-      this.loader.nextFile(this, true);
+    if (!type.hasOwnProperty('prototype')) {
+        throw new TypeError('Type is not a class');
     }
-  }, {
-    key: "onError",
-    value: function onError() {
-      this.loader.nextFile(this, true);
-    }
-  }, {
-    key: "onFontActive",
-    value: function onFontActive(familyName, fvd) {
-      this.loader.emit("webfontactive", this, familyName, fvd);
-    }
-  }, {
-    key: "onFontInactive",
-    value: function onFontInactive(familyName, fvd) {
-      this.loader.emit("webfontinactive", this, familyName, fvd);
-    }
-  }]);
+    // Classes usually have names (as functions usually have names)
+    var name = type.name;
+    return (getType(payload) === name) || Boolean(payload && (payload.constructor === type));
+}
 
-  return WebFontFile;
-}(phaser__WEBPACK_IMPORTED_MODULE_0__["Loader"].File);
-/* harmony default export */ __webpack_exports__["default"] = (WebFontFile);
-/** @typedef {import("phaser").Types.Loader.FileConfig} FileConfig */
 
-/** @typedef {import("./loader").LoaderOptions} LoaderOptions */
 
-/** @typedef {import("phaser").Loader.LoaderPlugin} LoaderPlugin */
 
 /***/ }),
-/* 4 */
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const is_what_1 = __webpack_require__(4);
+function isLoaderOptions(object) {
+    return is_what_1.isPlainObject(object) && Object.prototype.hasOwnProperty.call(object, "config");
+}
+exports.isLoaderOptions = isLoaderOptions;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const phaser_1 = __webpack_require__(2);
+const webfontloader_1 = __webpack_require__(7);
+class WebFontFile extends phaser_1.Loader.File {
+    constructor(loader, fileOptions) {
+        super(loader, fileOptions);
+    }
+    load() {
+        if (this.state === phaser_1.Loader.FILE_POPULATED) {
+            this.loader.nextFile(this, true);
+        }
+        else {
+            const config = Object.assign({}, this.config, {
+                active: this.onLoad.bind(this),
+                inactive: this.onError.bind(this),
+                fontactive: this.onFontActive.bind(this),
+                fontinactive: this.onFontInactive.bind(this),
+                fontloading: this.onFontLoading.bind(this),
+            });
+            webfontloader_1.load(config);
+        }
+    }
+    onLoad() {
+        this.loader.nextFile(this, true);
+    }
+    onError() {
+        this.loader.nextFile(this, false);
+    }
+    onFontActive(familyName, fvd) {
+        this.loader.emit("webfontactive", familyName, fvd, this);
+    }
+    onFontInactive(familyName, fvd) {
+        this.loader.emit("webfontinactive", familyName, fvd, this);
+    }
+    onFontLoading(familyName, fvd) {
+        this.loader.emit("webfontloading", familyName, fvd, this);
+    }
+}
+exports.WebFontFile = WebFontFile;
+exports.default = WebFontFile;
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/* Web Font Loader v1.6.28 - (c) Adobe Systems, Google. License: Apache 2.0 */(function(){function aa(a,b,c){return a.call.apply(a.bind,arguments)}function ba(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function p(a,b,c){p=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?aa:ba;return p.apply(null,arguments)}var q=Date.now||function(){return+new Date};function ca(a,b){this.a=a;this.o=b||a;this.c=this.o.document}var da=!!window.FontFace;function t(a,b,c,d){b=a.c.createElement(b);if(c)for(var e in c)c.hasOwnProperty(e)&&("style"==e?b.style.cssText=c[e]:b.setAttribute(e,c[e]));d&&b.appendChild(a.c.createTextNode(d));return b}function u(a,b,c){a=a.c.getElementsByTagName(b)[0];a||(a=document.documentElement);a.insertBefore(c,a.lastChild)}function v(a){a.parentNode&&a.parentNode.removeChild(a)}
