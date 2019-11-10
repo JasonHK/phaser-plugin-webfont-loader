@@ -7,17 +7,17 @@ import { load } from "webfontloader";
 
 import { LoaderConfig, LoaderOptions } from "../interfaces/options";
 
-export class WebFontFile extends Loader.File {
-
+export class WebFontFile extends Loader.File
+{
     public readonly config: LoaderConfig;
 
-    constructor(loader: Loader.LoaderPlugin, fileOptions: LoaderOptions) {
-
+    constructor(loader: Loader.LoaderPlugin, fileOptions: LoaderOptions)
+    {
         super(loader, fileOptions);
     }
 
-    public load(): void {
-
+    public load(): void
+    {
         if (this.state === Loader.FILE_POPULATED) {
             this.loader.nextFile(this, true);
         } else {
@@ -33,28 +33,28 @@ export class WebFontFile extends Loader.File {
         }
     }
 
-    public onLoad(): void {
-
+    public onLoad(): void
+    {
         this.loader.nextFile(this, true);
     }
 
-    public onError(): void {
-
+    public onError(): void
+    {
         this.loader.nextFile(this, false);
     }
 
-    public onFontActive(familyName: string, fvd: string): void {
-
+    public onFontActive(familyName: string, fvd: string): void
+    {
         this.loader.emit("webfontactive", familyName, fvd, this);
     }
 
-    public onFontInactive(familyName: string, fvd: string): void {
-
+    public onFontInactive(familyName: string, fvd: string): void
+    {
         this.loader.emit("webfontinactive", familyName, fvd, this);
     }
 
-    public onFontLoading(familyName: string, fvd: string): void {
-
+    public onFontLoading(familyName: string, fvd: string): void
+    {
         this.loader.emit("webfontloading", familyName, fvd, this);
     }
 }

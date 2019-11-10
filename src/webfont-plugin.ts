@@ -8,14 +8,14 @@ import { loaderCallback } from "./core/loader-callback";
 
 export class WebFontLoaderPlugin extends Plugins.BasePlugin {
 
-    constructor(pluginManager: Plugins.PluginManager) {
-
+    constructor(pluginManager: Plugins.PluginManager)
+    {
         super(pluginManager);
         pluginManager.registerFileType("webfont", loaderCallback);
     }
 
-    public addToScene(scene: Scene): void {
-
+    public addToScene(scene: Scene): void
+    {
         scene.load.webfont = loaderCallback;
     }
 }

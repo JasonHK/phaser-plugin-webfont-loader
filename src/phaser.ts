@@ -6,17 +6,18 @@ import { LoaderConfig, LoaderOptions } from "./interfaces/options";
 
 type WebFontEvents = "webfontactive" | "webfontinactive" | "webfontloading";
 
-interface WebFontEventListener {
+interface WebFontEventListener
+{
     (familyName: string, fvd: string, fileObject: WebFontFile): void;
 }
 
 declare module "phaser" {
 
-    export namespace Loader {
-
+    export namespace Loader
+    {
         /* eslint-disable @typescript-eslint/no-explicit-any */
-        export interface LoaderPlugin {
-
+        export interface LoaderPlugin
+        {
             webfont(config: LoaderConfig): Loader.LoaderPlugin;
             webfont(options: LoaderOptions): Loader.LoaderPlugin;
             webfont(key: string, config: LoaderConfig): Loader.LoaderPlugin;

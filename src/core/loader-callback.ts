@@ -12,16 +12,20 @@ import { WebFontFile } from "./webfont-loader";
 export function loaderCallback(config: LoaderConfig): Loader.LoaderPlugin;
 export function loaderCallback(options: LoaderOptions): Loader.LoaderPlugin;
 export function loaderCallback(key: string, config?: LoaderConfig): Loader.LoaderPlugin;
-export function loaderCallback(this: Loader.LoaderPlugin, key: string | Options, config?: LoaderConfig): Loader.LoaderPlugin { // eslint-disable-line max-len
-
+export function loaderCallback(this: Loader.LoaderPlugin, key: string | Options, config?: LoaderConfig): Loader.LoaderPlugin // eslint-disable-line max-len
+{
     let options: LoaderOptions;
-    if (isPlainObject(key)) {
-        if (isLoaderOptions(key)) {
+    if (isPlainObject(key))
+    {
+        if (isLoaderOptions(key))
+        {
             options = Object.assign<{}, LoaderOptions, Partial<LoaderOptions>>({}, key, {
                 type: "WebFont",
                 url: "",
             });
-        } else {
+        }
+        else
+        {
             options = {
                 config: key,
                 key: "WebFont",
@@ -29,7 +33,9 @@ export function loaderCallback(this: Loader.LoaderPlugin, key: string | Options,
                 url: "",
             };
         }
-    } else {
+    }
+    else
+    {
         options = {
             config: config,
             key: key,

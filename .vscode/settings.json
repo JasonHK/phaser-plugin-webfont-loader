@@ -6,4 +6,5 @@
         "typescript",
         "typescriptreact"
     ],
+    "files.eol": "\n",
 }
