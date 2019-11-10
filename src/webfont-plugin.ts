@@ -6,8 +6,8 @@ import { Plugins, Scene } from "phaser";
 
 import { loaderCallback } from "./core/loader-callback";
 
-export class WebFontLoaderPlugin extends Plugins.BasePlugin {
-
+export class WebFontLoaderPlugin extends Plugins.BasePlugin
+{
     constructor(pluginManager: Plugins.PluginManager)
     {
         super(pluginManager);

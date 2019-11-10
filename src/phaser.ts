@@ -11,8 +11,8 @@ interface WebFontEventListener
     (familyName: string, fvd: string, fileObject: WebFontFile): void;
 }
 
-declare module "phaser" {
-
+declare module "phaser"
+{
     export namespace Loader
     {
         /* eslint-disable @typescript-eslint/no-explicit-any */
